@@ -1,0 +1,74 @@
+﻿@model IEnumerable<AppointmentScheduling.Models.Medicine>
+@{ 
+    ViewData["Title"] = "Index";
+    int intNo = 0;
+}
+<div class="container p-0">
+    <div class="row pt-0">
+        <div class="col-6">
+            <h4 class="text-primary">Medicines List</h4>
+        </div>
+        <div class="col-6 text-right">
+            <a asp-controller="Medicine" asp-action="Create" class="btn btn-primary">Create new Medicine</a>
+        </div>
+    </div>
+    @*--------bawah--------------*@
+    <div class="col-0 p-0 justify-content-end">
+        <form asp-controller="Medicine" asp-action="Index">
+            <span class="btn-group">
+                <input class="form-control" type="text" name="SearchText"
+                       placeholder="Search Medicine..">
+                <input class="p-1 ml-2 btn btn-sm btn-info" type="submit" value="Search" />
+            </span>
+        </form>
+    </div>
+    @*--------atas--------------*@
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thread>
+                <tr>
+                    <th>
+                        No.
+                    </th>
+                    <th>
+                        Medicine
+                    </th>
+                    <th>
+                        Amount
+                    </th>
+                    <th>
+                        Category
+                    </th>
+                    <th>
+                        Changes
+                    </th>
+                </tr>
+            </thread>
+            <tbody>
+                @foreach (var medicine in Model)
+                {
+                    intNo = intNo + 1;
+                    <tr>
+                        <td>@intNo</td>
+
+                        <td width="25%">@medicine.MedicineName</td>
+                        <td width="25%">@medicine.Amount</td>
+                        <td width="25%">@medicine.Category.Name</td>
+                        <td width="25%">
+                            <div class="w-100 btn-group" role="group">
+                                <a asp-controller="Medicine" asp-action="Update" asp-route-Id="@medicine.Id" class="btn btn-primary mx-1">Update</a>
+                                <a asp-controller="Medicine" asp-action="Delete" asp-route-Id="@medicine.Id" class="btn btn-danger mx-1">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No medicine search result</p>
+    }
+</div>
+

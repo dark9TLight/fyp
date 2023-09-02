@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0bcZep5j+kiiGaJqbt4YLQAAAAACAAAAAAAQZgAAAAEAACAAAABRknYdRU6zpYRge392SHXuFACNWoQ7jWWAyfIeOjuz1wAAAAAOgAAAAAIAACAAAACunsSr8+xrdYl0xlPvmZttXwjozIBx5Pp+7Z4DueQ/UIAAAADZLw9X4sb3mooO8jxIbE5dARFYV40QMvJRgaUvJoaXRYomZpWeu46oqTHad/MhmYFKNpuJtkvEQSxFnljbw4/AtS43jMy9U4v8T0qrCcLZcP/Md5ZNhZ0nhFwP4iQPlCh3sscuyPXqsEups40mIZF2Lz8RMsA/Y9tbH1xV0Gg1KkAAAABx+jpNnQvpg+C5JiXkHtMMT70OUXhBNiPcG9wN7IqZUdikyjlgVl3/SoKZ1E44/5+cBtibI2zXaJ1t1tnmVI79</EncryptedPassword>
+    <History>True|2022-06-09T07:37:23.0109087Z;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Data Source=tcp:appointmentschedulingdbserver2022.database.windows.net,1433%3bInitial Catalog=AppointmentScheduling_db%3bUser Id=adminRosnani%40appointmentschedulingdbserver2022%3bPassword=Rosnani76%2a</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>
