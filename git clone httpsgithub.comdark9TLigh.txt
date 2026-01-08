@@ -1,0 +1,72 @@
+   git clone https://github.com/dark9TLight/fyp.git
+
+# Navigate to your project folder
+cd ~/fyp
+
+# Create a tool manifest
+dotnet new tool-manifest
+
+# Install dotnet-ef as a local tool
+dotnet tool install dotnet-ef
+
+# Use it with 'dotnet ef' instead of just 'ef'
+dotnet ef database update
+
+# For global installation
+dotnet ef --version
+
+# For local installation
+dotnet tool list
+
+cd ~/fyp
+dotnet restore
+dotnet build
+dotnet run
+
+#change .net 7 to .net 8
+nano AppointmentScheduling.csproj
+
+dotnet clean
+dotnet restore
+dotnet run
+
+# Remove the old bin and obj folders
+rm -rf bin/ obj/
+
+# Update the problematic packages to .NET 8 compatible versions
+dotnet add package Microsoft.AspNetCore.Identity.UI --version 8.0.0
+dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore --version 8.0.0
+
+# If you have other Microsoft.EntityFrameworkCore packages, update them too
+dotnet add package Microsoft.EntityFrameworkCore --version 8.0.0
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 8.0.0
+dotnet add package Microsoft.EntityFrameworkCore.Tools --version 8.0.0
+
+# Also update dotnet-ef tool to version 8
+dotnet tool uninstall dotnet-ef
+dotnet tool install dotnet-ef --version 8.0.0
+
+dotnet add package Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation --version 8.0.0
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 8.0.0
+
+dotnet add package Microsoft.EntityFrameworkCore.Sqlite --version 8.0.0
+
+#"DefaultConnection": "Data Source=AppointmentScheduler.db"
+nano appsettings.json
+
+#UseSqlite
+nano Startup.cs
+
+# Remove old migrations if they exist
+rm -rf Migrations/
+
+# Create new migrations for SQLite
+dotnet ef migrations add InitialCreate
+
+# Apply migrations to create the database
+dotnet ef database update
+
+# Run the application
+dotnet run
+
+
